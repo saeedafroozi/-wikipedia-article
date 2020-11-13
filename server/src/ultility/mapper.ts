@@ -1,4 +1,4 @@
-import { splitChar } from '../constant'
+import { splitChar } from '../constants'
 
 export function mapper(response: Article): ArticleViewModel {
     return {

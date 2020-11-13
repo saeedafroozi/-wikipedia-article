@@ -1,34 +1,12 @@
-import {ApolloServer,gql} from  'apollo-server'
+import { ApolloServer, gql } from 'apollo-server'
+import resolvers from './resolvers'
+import typeDefs from './schema/query'
 
 
+const server = new ApolloServer({
+    resolvers,
+    typeDefs
+});
 
-
-const typeDefs=gql`
-type Article   {
-    title:String
-}
- type Query {
-     articles:[Article]
- }
-`;
-
-const articles = [
-    {
-      title: 'The Awakening',
-    },
-    {
-      title: 'City of Glass',
-    },
-  ];
-
-  const resolvers ={
-      Query:{
-          articles:()=>articles
-      },
-  }
-
-  const server= new ApolloServer({typeDefs,resolvers});
-
-  server.listen(4002).then(({url})=>{
-      console.log(`Server ready at ${url}`)
-  })
+server.listen(5000)
+    .then(({ url }) => console.log(`Server ready at ${url}. `));

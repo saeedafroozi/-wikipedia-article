@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { ReactComponent as Trash } from '../asset/icons/trash.svg'
+import { useScroll } from '../hooks/useScroll'
 
 interface Props {
   onRemove: () => void;
@@ -24,8 +25,11 @@ const SearchInput = styled.input`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ isScroll: boolean }>`
   margin:0 auto;
+  width:${prop => `${prop.isScroll ? 90 : 85}%`};
+  position:${prop => `${prop.isScroll ? 'fixed' : 'relative'}`};
+  top:${prop => `${prop.isScroll ? 2 : 'unset'}px`};
 
   @media (max-width: 1024px) {
     width: 100%;
@@ -52,12 +56,13 @@ const Button = styled(Trash)`
 `;
 
 const SearchBox: React.FC<Props> = ({ onRemove, onChange, placeholder, keyword }) => (
-  <Container >
+  <Container isScroll={useScroll()}>
     <SearchInput
       placeholder={placeholder}
       onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChange((event.target.value))}
       value={keyword}
       autoFocus={true}
+      data-testid='searchInput'
     />
     <Button onClick={onRemove}></Button>
   </Container>

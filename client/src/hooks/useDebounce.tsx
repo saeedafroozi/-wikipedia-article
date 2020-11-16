@@ -16,4 +16,4 @@ export function useDebounce<T = unknown>(value: T, timeout: number): T | undefin
     [value, timeout]
   )
   return debouncedValue;
-}
+};

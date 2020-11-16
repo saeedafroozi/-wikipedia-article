@@ -3,13 +3,6 @@ import styled from "styled-components";
 import { ReactComponent as Trash } from '../asset/icons/trash.svg'
 import { useScroll } from '../hooks/useScroll'
 
-interface Props {
-  onRemove: () => void;
-  onChange: (keyword: string) => void;
-  placeholder: string;
-  keyword: string;
-}
-
 const SearchInput = styled.input`
   width: 100%;
   margin:0 auto;
@@ -55,6 +48,13 @@ const Button = styled(Trash)`
   }
 `;
 
+interface Props {
+  onRemove: () => void;
+  onChange: (keyword: string) => void;
+  placeholder: string;
+  keyword: string;
+};
+
 const SearchBox: React.FC<Props> = ({ onRemove, onChange, placeholder, keyword }) => (
   <Container isScroll={useScroll()}>
     <SearchInput
@@ -66,6 +66,6 @@ const SearchBox: React.FC<Props> = ({ onRemove, onChange, placeholder, keyword }
     />
     <Button onClick={onRemove}></Button>
   </Container>
-)
+);
 
 export default SearchBox;

@@ -30,7 +30,7 @@ const List = styled.div`
 interface Props {
   sections: SectionViewModel[];
   title: string;
-}
+};
 
 const ContentTree: React.FC<Props> = ({ sections, title }) => {
   return (
@@ -47,6 +47,6 @@ const ContentTree: React.FC<Props> = ({ sections, title }) => {
       </List>
     </Container>
   );
-}
+};
 
 export default ContentTree;

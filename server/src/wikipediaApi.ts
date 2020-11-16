@@ -8,4 +8,4 @@ export function searchArticle(page: string) {
       .then(resolve)
       .catch(reject)
   });
-}
+};

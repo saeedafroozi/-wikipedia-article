@@ -121,10 +121,10 @@ test('It must render  two categories', async () => {
   const categoryElement = await findByTestId(container, 'category');
   expect(categoryElement).toBeInTheDocument();
 
-  const title =await findByText(container, 'Test');
+  const title = await findByText(container, 'Test');
   expect(title).toBeTruthy();
 
-  const category1 =await findByText(container, 'Category 1');
+  const category1 = await findByText(container, 'Category 1');
   expect(category1).toBeTruthy();
 
   const category2 = await findByText(container, 'Category 2');
@@ -175,16 +175,16 @@ test('It must render three sections and two titles because title also use in Com
   const categoryElement = await findByTestId(container, 'ContentTree');
   expect(categoryElement).toBeTruthy()
 
-  const title =await queryAllByAltText(container, 'Test');
+  const title = await queryAllByAltText(container, 'Test');
   expect(title).toBeTruthy();
 
-  const section1 =await queryAllByAltText(container, 'Section1');
+  const section1 = await queryAllByAltText(container, 'Section1');
   expect(section1).toBeTruthy();
 
-  const section2 =await queryAllByAltText(container, 'Section2');
+  const section2 = await queryAllByAltText(container, 'Section2');
   expect(section2).toBeTruthy();
 
-  const section3 =await queryAllByAltText(container, 'Section3');
+  const section3 = await queryAllByAltText(container, 'Section3');
   expect(section3).toBeTruthy();
 
 })

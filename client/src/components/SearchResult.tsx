@@ -9,15 +9,19 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 15px;
-`
+`;
+
 const Loading = styled(load)`
 width:100px;
 height:100px;
-`
+`;
+
 const NoResult = styled.div`
-`
+`;
+
 const Exception = styled.div`
-`
+`;
+
 export const ARTICLE_QUERY = gql`
   query getArticle($page: String) {
     article(page: $page) {
@@ -54,11 +58,11 @@ const renderRightComponent = (loading: boolean, error: ApolloError | undefined, 
       </>
     );
   }
-}
+};
 
 interface Props {
   page: string;
-}
+};
 
 const SearchResult: React.FC<Props> = ({ page }) => {
   const { loading, error, data } = useQuery<GraphqlArticleViewModel>(
@@ -72,6 +76,6 @@ const SearchResult: React.FC<Props> = ({ page }) => {
   return (
     <Container>{renderRightComponent(loading, error, data)}</Container>
   )
-}
+};
 
 export default SearchResult;

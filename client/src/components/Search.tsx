@@ -18,6 +18,6 @@ const Search: React.FC = () => {
       {page && <SearchResult page={page} />}
     </>
   );
-}
+};
 
 export default Search;

@@ -19,11 +19,11 @@ const Category = styled.span`
 
 const Title = styled.div`
 font-weight:bold;
-`
+`;
 
 interface Props {
   items: string[];
-}
+};
 
 const Categories: React.FC<Props> = ({ items }) => {
   return (
@@ -36,6 +36,6 @@ const Categories: React.FC<Props> = ({ items }) => {
       )}
     </Container>
   )
-}
+};
 
 export default Categories;

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import SearchBox from './SearchBox';
-import { StringDictionary } from '../utils/constants'
+import { StringDictionary, HtppExcess_DebounceTime } from '../utils/constants'
 import SearchResult from './SearchResult';
 import { useDebounce } from '../hooks/useDebounce';
 
 const Search: React.FC = () => {
   const [keyword, setKeyword] = useState('');
-  const page = useDebounce(keyword, StringDictionary.HtppExcess_DebounceTime);
+  const page = useDebounce(keyword, HtppExcess_DebounceTime);
   return (
     <>
       <SearchBox

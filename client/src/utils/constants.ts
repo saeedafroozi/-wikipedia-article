@@ -4,5 +4,6 @@ export const StringDictionary = {
   Waiting: "Please Wait...",
   Error_Execption: "Server Is Busy Please Try Later...",
   Placeholder_Value: "Please Type the Article Title...",
-  HtppExcess_DebounceTime: 1000
 };
+export const Scroll_Accuracy = 15;
+export const HtppExcess_DebounceTime = 1000;

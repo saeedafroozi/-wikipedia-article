@@ -18,7 +18,7 @@ const Category = styled.span`
 `;
 
 const Title = styled.div`
-font-weight:bold;
+  font-weight:bold;
 `;
 
 interface Props {

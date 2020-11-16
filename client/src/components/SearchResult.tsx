@@ -3,7 +3,7 @@ import Article from '../components/Article';
 import { ApolloError, gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
 import { StringDictionary } from '../utils/constants';
-import { ReactComponent as load } from '../asset/icons/three-dots.svg';
+import { ReactComponent as LoadingIcon } from '../asset/icons/three-dots.svg';
 
 const Container = styled.div`
   display: flex;
@@ -11,9 +11,9 @@ const Container = styled.div`
   padding-top: 15px;
 `;
 
-const Loading = styled(load)`
-width:100px;
-height:100px;
+const Loading = styled(LoadingIcon)`
+  width:100px;
+  height:100px;
 `;
 
 const NoResult = styled.div`

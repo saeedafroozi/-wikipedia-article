@@ -1,9 +1,9 @@
 import React from 'react';
+import Article from '../components/Article';
 import { ApolloError, gql, useQuery } from '@apollo/client';
 import styled from 'styled-components';
 import { StringDictionary } from '../utils/constants';
 import { ReactComponent as load } from '../asset/icons/three-dots.svg';
-
 
 const Container = styled.div`
   display: flex;
@@ -46,7 +46,11 @@ const renderRightComponent = (loading: boolean, error: ApolloError | undefined, 
     }
     return (
       <>
-       
+        <Article
+          categories={article.categories}
+          title={article.title}
+          sections={article.sections}
+        />
       </>
     );
   }

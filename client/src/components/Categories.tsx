@@ -27,7 +27,7 @@ interface Props {
 
 const Categories: React.FC<Props> = ({ items }) => {
   return (
-    <Container >
+    <Container data-testid='category'>
       <Title> Categories:</Title>
       {items.map(
         (category, index) => (

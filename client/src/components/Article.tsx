@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Categories from './Categories';
+import ContentTree from './ContentTree';
 
 const Container = styled.div`
   margin-top: 10px;
@@ -33,6 +34,9 @@ const Article: React.FC<Props> = ({ title, categories, sections }) => (
     <Column>
       <Header>{title}</Header>
       {!!categories.length && <Categories items={categories} />}
+    </Column>
+    <Column height={30}>
+      {!!sections.length && <ContentTree sections={sections} title={title} />}
     </Column>
   </Container>
 );

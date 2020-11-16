@@ -7,7 +7,7 @@ export default {
     article: async (parent: unknown, { page }: { page: string }): Promise<ArticleViewModel | ErrorResponse | null> => {
       const response = await searchArticle(page);
       if ((response as ErrorResponse).error) {
-        return null;//I tried to return the ErrorResponse Object To Client
+        return null;  //It's better to return an error object.
       }
       else {
         return mapper((response as ServerResponse<Article>).parse);

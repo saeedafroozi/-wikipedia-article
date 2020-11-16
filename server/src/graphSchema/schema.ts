@@ -3,7 +3,7 @@ import { gql } from 'apollo-server';
 
 export default gql`
 
-type Article {
+  type Article {
     title: String
     categories: [String]
     sections: [Section]

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Categories from './Categories';
 
 const Container = styled.div`
   margin-top: 10px;
@@ -31,6 +32,7 @@ const Article: React.FC<Props> = ({ title, categories, sections }) => (
   <Container data-testid='article'>
     <Column>
       <Header>{title}</Header>
+      {!!categories.length && <Categories items={categories} />}
     </Column>
   </Container>
 );

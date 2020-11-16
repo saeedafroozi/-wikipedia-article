@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
+import { Scroll_Accuracy } from '../utils/constants'
 
 export function useScroll() {
-  const [scrollStart, setscrollStart] = useState(false);
+  const [scrollStart, setScrollStart] = useState(false);
   const handleScroll = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    console.log(winScroll);
-    setscrollStart(winScroll <= 15 ? false : true)
+    setScrollStart(winScroll > Scroll_Accuracy)
   };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  },
+  useEffect(
+    () => {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    },
     []
   )
   return scrollStart;

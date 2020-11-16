@@ -1,7 +1,7 @@
 import React from 'react';
 import { MockedProvider, MockedResponse } from '@apollo/client/testing';
 import SearchResult, { ARTICLE_QUERY } from './SearchResult';
-import { render, findByTestId, queryAllByTestId, findByText } from '@testing-library/react';
+import { render, findByTestId, queryAllByTestId, findByText, queryAllByAltText, findByDisplayValue } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
 
 test('It must render without Exeception when article is null', () => {
@@ -121,18 +121,18 @@ test('It must render  two categories', async () => {
   const categoryElement = await findByTestId(container, 'category');
   expect(categoryElement).toBeInTheDocument();
 
-  const title = findByText(container, 'Test');
+  const title =await findByText(container, 'Test');
   expect(title).toBeTruthy();
 
-  const category1 = findByText(container, 'Category 1');
+  const category1 =await findByText(container, 'Category 1');
   expect(category1).toBeTruthy();
 
-  const category2 = findByText(container, 'Category 2');
+  const category2 = await findByText(container, 'Category 2');
   expect(category2).toBeTruthy();
 
 })
 
-test('It must render three sections', async () => {
+test('It must render three sections and two titles because title also use in Component Tree', async () => {
   const mockObject: ReadonlyArray<MockedResponse<Record<string, ArticleViewModel>>> = [
     {
       request: {
@@ -147,17 +147,17 @@ test('It must render three sections', async () => {
             title: 'Test',
             sections: [{
               id: '1',
-              title: 'Section 1',
+              title: 'Section1',
               indentLevel: 1
             },
             {
               id: '2',
-              title: 'Section 2',
+              title: 'Section2',
               indentLevel: 2
             },
             {
               id: '3',
-              title: 'Section 1',
+              title: 'Section1',
               indentLevel: 3
             }],
             categories: []
@@ -173,18 +173,18 @@ test('It must render three sections', async () => {
   );
 
   const categoryElement = await findByTestId(container, 'ContentTree');
-  expect(categoryElement).toBeInTheDocument();
+  expect(categoryElement).toBeTruthy()
 
-  const title = findByText(container, 'Test');
+  const title =await queryAllByAltText(container, 'Test');
   expect(title).toBeTruthy();
 
-  const section1 = findByText(container, 'Section 1');
+  const section1 =await queryAllByAltText(container, 'Section1');
   expect(section1).toBeTruthy();
 
-  const section2 = findByText(container, 'Section 2');
+  const section2 =await queryAllByAltText(container, 'Section2');
   expect(section2).toBeTruthy();
 
-  const section3 = findByText(container, 'Section 3');
+  const section3 =await queryAllByAltText(container, 'Section3');
   expect(section3).toBeTruthy();
 
 })

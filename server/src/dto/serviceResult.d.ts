@@ -1,9 +1,12 @@
-interface ServerRespone<T> {
-    parse?: T;
-    error?: ErrorResponse;
+interface ServerResponse<T> {
+  parse: T;
 }
 
 interface ErrorResponse {
-    number: string;
-    message: string;
+  error: {
+    code: string;
+    info: string;
+    docref: string;
+  },
+  servedby?: string;
 }

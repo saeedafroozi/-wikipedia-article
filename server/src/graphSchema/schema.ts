@@ -7,14 +7,12 @@ type Article {
     title: String
     categories: [String]
     sections: [Section]
-    externallinks: [String]
   }
 
   type Section {
-    level: Int
+    indentLevel: Int
     title: String
     id: String
-    hierarchy: [String]
   }
 
   type Query {

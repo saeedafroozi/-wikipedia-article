@@ -14,7 +14,7 @@ const SearchInput = styled.input`
   box-sizing: border-box;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
   &:focus{
-      border-color:#90cdf4;
+    border-color:#90cdf4;
   }
 `;
 
@@ -43,8 +43,8 @@ const Button = styled(Trash)`
   transition: background-color 0.5s;
   color: white;
   :hover, :focus {
-  opacity:0.5;
-  cursor: pointer;
+    opacity:0.5;
+    cursor: pointer;
   }
 `;
 

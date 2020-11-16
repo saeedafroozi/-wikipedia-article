@@ -2,6 +2,7 @@ import React from 'react';
 import ResetCSS from '../asset/styles/Reset';
 import Layout from '../components/Layout';
 import styled from 'styled-components';
+import Search from '../components/Search'
 import { StringDictionary } from '../utils/constants'
 
 const Header = styled.header`
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           {StringDictionary.App_Title}
         </Title>
       </Header>
+      <Search />
     </Layout>
   </>
 };
